@@ -1,6 +1,6 @@
-import { PostcodeResult } from '../PostcodeResult';
+import { PostcodeResult } from '../PostcodeResult'
 
 export interface PostcodeResponse {
-  status: number;
-  result: PostcodeResult;
+  status: number
+  result: PostcodeResult
 }

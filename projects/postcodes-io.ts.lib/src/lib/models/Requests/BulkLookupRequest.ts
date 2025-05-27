@@ -1,3 +1,3 @@
 export interface BulkLookupRequest {
-  postcodes: string[];
+  postcodes: string[]
 }

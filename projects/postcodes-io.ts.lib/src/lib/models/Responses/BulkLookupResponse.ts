@@ -1,6 +1,6 @@
-import { PostcodeResult } from '../PostcodeResult';
+import { PostcodeResult } from '../PostcodeResult'
 
 export interface BulkLookupResponse {
-  status: number;
-  result: { query: string; result: PostcodeResult }[];
+  status: number
+  result: { query: string; result: PostcodeResult }[]
 }

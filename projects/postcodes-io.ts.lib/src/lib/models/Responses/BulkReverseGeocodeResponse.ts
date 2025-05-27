@@ -1,12 +1,12 @@
-import { PostcodeDistance } from '../PostcodeDistance';
+import { PostcodeDistance } from '../PostcodeDistance'
 
 export interface BulkReverseGeocodeResponse {
-  status: number;
+  status: number
   result: {
     query: {
-      longitude: number;
-      latitude: number;
-    };
-    result: PostcodeDistance[];
-  }[];
+      longitude: number
+      latitude: number
+    }
+    result: PostcodeDistance[]
+  }[]
 }

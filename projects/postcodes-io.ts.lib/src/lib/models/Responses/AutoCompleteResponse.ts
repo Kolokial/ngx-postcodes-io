@@ -1,4 +1,4 @@
 export interface AutoCompleteResponse {
-  status: number;
-  result: string[] | null;
+  status: number
+  result: string[] | null
 }

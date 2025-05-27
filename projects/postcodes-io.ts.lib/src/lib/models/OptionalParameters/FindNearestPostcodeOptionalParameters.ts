@@ -1,4 +1,4 @@
 export interface FindNearestPostcodeOptionalParameters {
-  limit?: number;
-  radius?: number;
+  limit?: number
+  radius?: number
 }

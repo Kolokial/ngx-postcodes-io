@@ -1,8 +1,8 @@
 export interface BulkReverseGeocodeRequest {
   geolocations: {
-    longitude: number;
-    latitude: number;
-    radius: number;
-    limit: number;
-  }[];
+    longitude: number
+    latitude: number
+    radius: number
+    limit: number
+  }[]
 }

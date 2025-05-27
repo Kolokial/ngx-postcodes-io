@@ -1,3 +1,3 @@
-import { PostcodeResult } from './PostcodeResult';
+import { PostcodeResult } from './PostcodeResult'
 
-export type BulkLookupFilter = Exclude<keyof PostcodeResult, 'codes'>;
+export type BulkLookupFilter = Exclude<keyof PostcodeResult, 'codes'>

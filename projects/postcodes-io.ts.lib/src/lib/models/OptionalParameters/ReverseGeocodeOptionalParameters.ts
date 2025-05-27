@@ -1,5 +1,5 @@
 export interface ReverseGeocodeOptionalParameters {
-  limit?: number;
-  radius?: number;
-  widesearch?: boolean;
+  limit?: number
+  radius?: number
+  widesearch?: boolean
 }
