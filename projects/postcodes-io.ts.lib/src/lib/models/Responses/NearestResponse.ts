@@ -1,4 +1,4 @@
-import { PostcodeDistance } from './PostcodeDistance';
+import { PostcodeDistance } from '../PostcodeDistance';
 
 export interface NearestResponse {
   status: number;

@@ -1,4 +1,4 @@
-import { PostcodeResult } from '../PostcodeResult';
+import { PostcodeResult } from './PostcodeResult';
 
 export interface PostcodeDistance extends PostcodeResult {
   distance: number;

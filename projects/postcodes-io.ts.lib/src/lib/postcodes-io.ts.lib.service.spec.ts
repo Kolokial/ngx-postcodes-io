@@ -8,6 +8,7 @@ import {
 } from '@angular/common/http/testing';
 import { firstValueFrom } from 'rxjs';
 import { BulkLookupFilter } from './models/BulkLookupFilter';
+import { BulkReverseGeocodeOptionalParameters } from './models/OptionalParameters/BulkReverseGeocodeOptionalParameters';
 
 describe('PostcodesIoTsLibService', () => {
   let service: PostcodesIoTsLibService;
@@ -284,6 +285,174 @@ describe('PostcodesIoTsLibService', () => {
     );
 
     expect(req.request.method).toBe('GET');
+    req.flush({});
+
+    httpTesting.verify();
+  });
+
+  it('should call the bulkReverseGeocodePostcode url with correct request', () => {
+    const params = {
+      geolocations: [
+        {
+          limit: 1,
+          radius: 100,
+          longitude: 19,
+          latitude: 19,
+        },
+      ],
+    };
+    firstValueFrom(service.bulkReverseGeocodePostcode(params));
+    const req = httpTesting.expectOne(`${service.apiUrl}/postcodes`);
+
+    expect(req.request.method).toBe('POST');
+    expect(req.request.body).toBe(params);
+    req.flush({});
+
+    httpTesting.verify();
+  });
+
+  it('should call the bulkReverseGeocodePostcode url with correct request and limit', () => {
+    const request = {
+      geolocations: [
+        {
+          limit: 1,
+          radius: 100,
+          longitude: 19,
+          latitude: 19,
+        },
+      ],
+    };
+
+    const params = {
+      limit: 1,
+    };
+    firstValueFrom(service.bulkReverseGeocodePostcode(request, params));
+    const req = httpTesting.expectOne(
+      `${service.apiUrl}/postcodes?limit=${params.limit}`
+    );
+
+    expect(req.request.method).toBe('POST');
+    expect(req.request.body).toBe(request);
+    req.flush({});
+
+    httpTesting.verify();
+  });
+
+  it('should call the bulkReverseGeocodePostcode url with correct request, limit and radius', () => {
+    const request = {
+      geolocations: [
+        {
+          limit: 1,
+          radius: 100,
+          longitude: 19,
+          latitude: 19,
+        },
+      ],
+    };
+
+    const params = {
+      limit: 1,
+      radius: 100,
+    };
+    firstValueFrom(service.bulkReverseGeocodePostcode(request, params));
+    const req = httpTesting.expectOne(
+      `${service.apiUrl}/postcodes?limit=${params.limit}&radius=${params.radius}`
+    );
+
+    expect(req.request.method).toBe('POST');
+    expect(req.request.body).toBe(request);
+    req.flush({});
+
+    httpTesting.verify();
+  });
+
+  it('should call the bulkReverseGeocodePostcode url with correct request, limit, radius and widesearch', () => {
+    const request = {
+      geolocations: [
+        {
+          limit: 1,
+          radius: 100,
+          longitude: 19,
+          latitude: 19,
+        },
+      ],
+    };
+
+    const params = {
+      limit: 1,
+      radius: 100,
+      widesearch: true,
+    };
+    firstValueFrom(service.bulkReverseGeocodePostcode(request, params));
+    const req = httpTesting.expectOne(
+      `${service.apiUrl}/postcodes?limit=${params.limit}&radius=${params.radius}&widesearch=${params.widesearch}`
+    );
+
+    expect(req.request.method).toBe('POST');
+    expect(req.request.body).toBe(request);
+    req.flush({});
+
+    httpTesting.verify();
+  });
+
+  it('should call the bulkReverseGeocodePostcode url with correct request, limit, radius, widesearch and filter', () => {
+    const request = {
+      geolocations: [
+        {
+          limit: 1,
+          radius: 100,
+          longitude: 19,
+          latitude: 19,
+        },
+      ],
+    };
+    const filter: BulkLookupFilter[] = ['postcode', 'longitude', 'latitude'];
+    const params: BulkReverseGeocodeOptionalParameters = {
+      limit: 1,
+      radius: 100,
+      widesearch: true,
+      filter: filter,
+    };
+    firstValueFrom(service.bulkReverseGeocodePostcode(request, params));
+    const req = httpTesting.expectOne(
+      `${service.apiUrl}/postcodes?limit=${params.limit}&radius=${
+        params.radius
+      }&widesearch=${params.widesearch}&filter=${encodeURIComponent(
+        filter.join(',')
+      )}`
+    );
+
+    expect(req.request.method).toBe('POST');
+    expect(req.request.body).toBe(request);
+    req.flush({});
+
+    httpTesting.verify();
+  });
+
+  it('should call the bulkReverseGeocodePostcode url with correct request and filter', () => {
+    const request = {
+      geolocations: [
+        {
+          limit: 1,
+          radius: 100,
+          longitude: 19,
+          latitude: 19,
+        },
+      ],
+    };
+    const filter: BulkLookupFilter[] = ['postcode', 'longitude', 'latitude'];
+    const params: BulkReverseGeocodeOptionalParameters = {
+      filter: filter,
+    };
+    firstValueFrom(service.bulkReverseGeocodePostcode(request, params));
+    const req = httpTesting.expectOne(
+      `${service.apiUrl}/postcodes?filter=${encodeURIComponent(
+        filter.join(',')
+      )}`
+    );
+
+    expect(req.request.method).toBe('POST');
+    expect(req.request.body).toBe(request);
     req.flush({});
 
     httpTesting.verify();
