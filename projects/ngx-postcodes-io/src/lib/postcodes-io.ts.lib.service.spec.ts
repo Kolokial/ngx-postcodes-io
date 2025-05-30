@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing'
 
-import { PostcodesIoTsLibService } from './postcodes-io.ts.lib.service'
+import { PostcodesIoTsLibService } from './ngx-postcodes-io.lib.service'
 import { provideHttpClient } from '@angular/common/http'
 import {
   HttpTestingController,

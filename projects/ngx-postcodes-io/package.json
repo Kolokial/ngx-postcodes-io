@@ -1,5 +1,5 @@
 {
-  "name": "postcodes-io.ts.lib",
+  "name": "ngx-postcodes-io.lib",
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/common": "^19.2.0",

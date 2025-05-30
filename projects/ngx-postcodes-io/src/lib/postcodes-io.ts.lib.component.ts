@@ -1,9 +1,9 @@
 import { Component } from '@angular/core'
 
 @Component({
-  selector: 'lib-postcodes-io.ts.lib',
+  selector: 'lib-ngx-postcodes-io.lib',
   imports: [],
-  template: ` <p>postcodes-io.ts.lib works!</p> `,
+  template: ` <p>ngx-postcodes-io.lib works!</p> `,
   styles: ``,
 })
 export class PostcodesIoTsLibComponent {}

@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing'
 
-import { PostcodesIoTsLibComponent } from './postcodes-io.ts.lib.component'
+import { PostcodesIoTsLibComponent } from './ngx-postcodes-io.lib.component'
 
 describe('PostcodesIoTsLibComponent', () => {
   let component: PostcodesIoTsLibComponent
