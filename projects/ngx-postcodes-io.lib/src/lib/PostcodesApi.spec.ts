@@ -1,7 +1,5 @@
 import { TestBed } from '@angular/core/testing'
-
-import { PostcodesIoTsLibService } from './ngx-postcodes-io.lib.service'
-import { provideHttpClient } from '@angular/common/http'
+import { HttpClient, provideHttpClient } from '@angular/common/http'
 import {
   HttpTestingController,
   provideHttpClientTesting,
@@ -9,17 +7,20 @@ import {
 import { firstValueFrom } from 'rxjs'
 import { BulkLookupFilter } from './models/BulkLookupFilter'
 import { BulkReverseGeocodeOptionalParameters } from './models/OptionalParameters/BulkReverseGeocodeOptionalParameters'
+import { PostcodesApi } from './PostcodesApi'
 
 describe('PostcodesIoTsLibService', () => {
-  let service: PostcodesIoTsLibService
+  let service: PostcodesApi
   let httpTesting: HttpTestingController
+  let httpClient: HttpClient
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [provideHttpClient(), provideHttpClientTesting()],
     })
-    service = TestBed.inject(PostcodesIoTsLibService)
+    httpClient = TestBed.inject(HttpClient)
     httpTesting = TestBed.inject(HttpTestingController)
+    service = new PostcodesApi(httpClient)
   })
 
   it('should be created', () => {

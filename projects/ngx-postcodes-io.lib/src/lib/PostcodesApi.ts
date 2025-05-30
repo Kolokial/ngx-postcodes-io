@@ -1,23 +1,20 @@
-import { Injectable } from '@angular/core'
-import { Observable } from 'rxjs'
 import { HttpClient } from '@angular/common/http'
-import { PostcodeResponse } from './models/Responses/PostcodeResponse'
-import { QueryResponse } from './models/Responses/QueryResponse'
-import { BulkLookupRequest } from './models/Requests/BulkLookupRequest'
-import { BulkLookupResponse } from './models/Responses/BulkLookupResponse'
+import { Observable } from 'rxjs'
 import { BulkLookupFilter } from './models/BulkLookupFilter'
-import { AutoCompleteResponse } from './models/Responses/AutoCompleteResponse'
-import { NearestResponse } from './models/Responses/NearestResponse'
+import { BulkReverseGeocodeOptionalParameters } from './models/OptionalParameters/BulkReverseGeocodeOptionalParameters'
 import { FindNearestPostcodeOptionalParameters } from './models/OptionalParameters/FindNearestPostcodeOptionalParameters'
 import { ReverseGeocodeOptionalParameters } from './models/OptionalParameters/ReverseGeocodeOptionalParameters'
 import { PostcodeDistance } from './models/PostcodeDistance'
+import { BulkLookupRequest } from './models/Requests/BulkLookupRequest'
 import { BulkReverseGeocodeRequest } from './models/Requests/BulkReverseGeocodeRequest'
-import { BulkReverseGeocodeOptionalParameters } from './models/OptionalParameters/BulkReverseGeocodeOptionalParameters'
+import { AutoCompleteResponse } from './models/Responses/AutoCompleteResponse'
+import { BulkLookupResponse } from './models/Responses/BulkLookupResponse'
+import { NearestResponse } from './models/Responses/NearestResponse'
+import { PostcodeResponse } from './models/Responses/PostcodeResponse'
+import { QueryResponse } from './models/Responses/QueryResponse'
 
-@Injectable({
-  providedIn: 'root',
-})
-export class PostcodesIoTsLibService {
+export class PostcodesApi {
+  //todo: make apiUrl configurable
   private _apiUrl: string = 'https://api.postcodes.io'
   public get apiUrl(): string {
     return this._apiUrl
